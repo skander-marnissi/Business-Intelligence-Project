@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="DESKTOP-63S49FM\Moez"
+  DTS:CreatorComputerName="DESKTOP-63S49FM"
+  DTS:CreationDate="12/4/2019 4:20:57 AM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{8932D655-FEED-41ED-95C0-33903016D6FF}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Master"
+  DTS:DTSID="{F4C58A0A-899A-4535-8351-10C619DDE750}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Alimentation DW"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alimentation DW"
+      DTS:DTSID="{C0F7D4F5-45B3-45E1-BF18-92A7F720C082}"
+      DTS:Description="Execute Package Task"
+      DTS:CreationName="SSIS.ExecutePackageTask.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>SA_DW.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Alimentation SA"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Alimentation SA"
+      DTS:DTSID="{0C24410F-A1FA-4831-9563-C5BC87EFE2DE}"
+      DTS:Description="Execute Package Task"
+      DTS:CreationName="SSIS.ExecutePackageTask.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>SA_Alimentation.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:From="Package\Alimentation SA"
+      DTS:To="Package\Alimentation DW"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:DTSID="{C62F5FFA-76C0-40BE-B10C-0B22CB2ABC47}"
+      DTS:CreationName="" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Alimentation SA"
+          TopLeft="414,69" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Alimentation DW"
+          TopLeft="469,200" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="490,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.5,89"
+              Start="0,0"
+              End="57.5,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.5"
+                    Point2="0,44.5"
+                    Point3="4,44.5" />
+                  <mssgle:LineSegment
+                    End="53.5,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.5,44.5"
+                    Point2="57.5,44.5"
+                    Point3="57.5,48.5" />
+                  <mssgle:LineSegment
+                    End="57.5,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
